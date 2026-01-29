@@ -10,10 +10,10 @@ O objetivo deste portfólio é ir além do básico, implementando funcionalidade
 
 ## ✨ Funcionalidades Destacadas
 
-* **Dark Mode Persistente:** Switch moderno com animação e salvamento de preferência do usuário via `localStorage`.
-* **CSS 3D Interativo:** Lançador de dados RPG (D4, D6, D8, D20) e moeda, feitos puramente com `transform-style: preserve-3d`.
+* **Dark Mode Persistente:** Switch moderno com animação.
+* **CSS 3D Interativo:** Lançador de dados RPG (D6), feitos puramente com `transform-style: preserve-3d`.
 * **Magic Navigation:** Menu de navegação com indicador flutuante e efeitos de "Gooey" via CSS.
-* **Efeito Magnético:** Banner interativo onde formas geométricas seguem o movimento do mouse (Parallax/Sticky cursor).
+* **Efeito Magnético:** Banner interativo onde formas geométricas seguem o movimento do mouse (em fase de testes).
 * **Loaders CSS:** Coleção de animações de carregamento modernas utilizando apenas uma `<div>`.
 * **Design Responsivo:** Layout adaptável para Mobile, Tablet e Desktop.
 
@@ -28,9 +28,4 @@ O objetivo deste portfólio é ir além do básico, implementando funcionalidade
 
 1. Clone este repositório:
    ```bash
-   git clone [https://github.com/jamisu337/NOME-DO-REPO.git](https://github.com/jamisu337/NOME-DO-REPO.git)
-
-
-1. Clone este repositório:
-   ```bash
-   git clone [https://github.com/jamisu337/NOME-DO-REPO.git](https://github.com/jamisu337/NOME-DO-REPO.git)
+   https://jamisu337.github.io/portifolio/
