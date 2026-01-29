@@ -1,0 +1,113 @@
+/* section-split-banner */
+
+.split-banner {
+    display: flex;
+    width: 100%;
+    min-height: 450px; /* Aumentei um pouco para dar espaço */
+    margin: 4rem 0;
+}
+
+.split-left {
+    flex: 1;
+    background-color: var(--dark-blue-m);
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+    z-index: 2; /* Garante que o texto fique sobre qualquer borda */
+}
+
+.split-right {
+    flex: 1;
+    background-color: var(--dark-blue-m); /* Um tom levemente diferente para contraste */
+    position: relative;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .split-banner { flex-direction: column; }
+    .split-right { min-height: 300px; }
+}
+
+/* --- MAGNETIC SHAPES --- */
+
+.shapes-container {
+    perspective: 1000px;
+}
+
+.shape {
+    position: absolute;
+    /* A transição é o segredo do efeito "Sticky/Smooth". 
+       Se remover, o movimento fica duro. Se aumentar, fica parecendo gelatina. */
+    transition: transform 0.1s ease-out; 
+    will-change: transform; /* Otimização de performance */
+}
+
+/* 1. QUADRADO */
+.shape-square {
+    width: 60px;
+    height: 60px;
+    background-color: #2ecc71;
+    top: 20%;
+    right: 20%;
+    border-radius: 12px;
+    opacity: 0.8;
+    /* Rotação continua via CSS moderno */
+   animation: none; 
+    rotate: 45deg;
+}
+
+/* 2. CÍRCULO */
+.shape-circle {
+    width: 180px;
+    height: 180px;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    bottom: 10%;
+    left: 10%;
+}
+
+/* 3. TRIÂNGULO */
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-bottom: 50px solid rgba(46, 204, 113, 0.4);
+    top: 35%;
+    left: 25%;
+    animation: none;
+    rotate: -15deg;
+}
+
+/* 4. PONTINHOS */
+.shape-dots {
+    width: 120px;
+    height: 120px;
+    background-image: radial-gradient(rgba(255,255,255,0.2) 2px, transparent 2px);
+    background-size: 20px 20px;
+    bottom: 30%;
+    right: 25%;
+}
+
+/* ELEMENTO CENTRAL */
+.center-anchor {
+    z-index: 10;
+    padding: 25px;
+    background: rgba(26, 37, 48, 0.6);
+    border-radius: 50%;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.1s ease-out; /* Importante para o efeito magnético */
+}
+
+/* Animações de Rotação (Apenas girar, sem mover de lugar) */
+@keyframes rotate-slow {
+    to { transform: rotate(360deg); }
+}
+
+@keyframes rotate-reverse {
+    to { transform: rotate(-360deg); }
+}

@@ -1,0 +1,204 @@
+:root {
+    --dark-blue: #1a2530;
+    --dark-blue-m: #1a2530;
+    --accent-green-a: #25a25a;
+    --accent-green: #2ecc71;
+    --accent-green-b: #83f1b1;
+    --light-bg: #eecf46;
+    --page-bg: #f0f2f5;
+    --white: #ffffff;
+    --card-text: #555;
+    --border-color: #ddd;
+}
+
+/* Variáveis para o Modo Escuro */
+body.dark-mode {
+    --dark-blue: #ecf0f1; /* Texto vira claro */
+    --dark-blue-m: #181818;
+    --page-bg: #121212;   /* Fundo da página vira preto suave */
+    --white: #1e1e1e;     /* Cards viram cinza escuro */
+    --card-text: #bbb;    /* Texto secundário mais claro */
+    --border-color: #333;
+    --accent-green-b: #8585851d;
+}
+
+/* Ajustes Específicos para manter Hero e Footer escuros no Dark Mode */
+body.dark-mode .slider-main-box{
+    background-color: #0d1117 !important;
+    color: #fff !important;
+}
+
+/* Ajuste das bordas dos cards no modo escuro */
+body.dark-mode .card {
+    border-color: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--page-bg);
+    color: var(--dark-blue);
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    /* Garante que a imagem fique centralizada */
+    border-radius: 10px;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+.mb-1 {
+    margin-bottom: 1rem;
+}
+
+.mb-2 {
+    margin-bottom: 2rem;
+}
+
+.half {
+    width: 50% !important;
+}
+
+.bg-gray {
+    background-color: #555 !important;
+}
+
+/* Estado inicial: invisível e um pouco abaixo */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+/* Estado final: visível e na posição correta */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#slider-bg {
+    /* Mude 0.3s para 0.8s ou 1s para um fade mais lento e cinematográfico */
+    transition: opacity 2s ease;
+}
+
+/* relacionado aos artigos ----------------------------------------------- */
+.article-body {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+    line-height: 1.8;
+    color: var(--dark-blue);
+}
+
+.article-header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+/* relacionado aos artigos ----------------------------------------------- */
+
+/* coloracao de divs ----------------------------------------------- */
+.red {
+    background-color: #ff5f56;
+}
+
+.yellow {
+    background-color: #ffbd2e;
+}
+
+.green {
+    background-color: #27c93f;
+}
+
+/* coloracao de divs ----------------------------------------------- */
+
+/* coloracao de sintaxe ----------------------------------------------- */
+.prop {
+    color: #9cdcfe;
+}
+
+.val {
+    color: #ce9178;
+}
+
+.sel {
+    color: #dcdcaa;
+}
+
+.kwd {
+    color: #c586c0;
+}
+
+.num {
+    color: #b5cea8;
+}
+/* coloracao de sintaxe ----------------------------------------------- */
+
+/* dark mode ---------------------------------------------------------- */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 2em;
+}
+
+/* Esconde o checkbox padrão */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* O fundo do slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  border: 2px solid var(--dark-blue);
+  border-radius: 50px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* A bolinha do slider */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4em;
+  width: 1.4em;
+  left: 0.2em;
+  bottom: 0.2em;
+  background-color: var(--accent-green);
+  border-radius: inherit;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.switch input:checked + .slider {
+  box-shadow: 0 0 20px rgba(46, 204, 113, 0.8); 
+  border: 2px solid var(--accent-green);
+  background-color: transparent;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.5em);
+  background-color: var(--accent-green);
+}
+/* dark mode ---------------------------------------------------------- */

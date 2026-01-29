@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animações com CSS & GSAP | Dev.Jamisu</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* Estilos específicos para a página de artigo */
+
+        .demo-box {
+            width: 100%;
+            height: 300px;
+            background-color: var(--dark-blue);
+            border-radius: 12px;
+            margin: 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Exemplo de animação CSS que será explicada no blog */
+        .animated-square {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-green);
+            border-radius: 8px;
+            animation: pulse-rotate 3s infinite ease-in-out;
+        }
+
+        @keyframes pulse-rotate {
+            0% {
+                transform: scale(1) rotate(0deg);
+                border-radius: 8px;
+            }
+
+            50% {
+                transform: scale(1.2) rotate(180deg);
+                border-radius: 50%;
+                background-color: var(--accent-green-b);
+            }
+
+            100% {
+                transform: scale(1) rotate(360deg);
+                border-radius: 8px;
+            }
+        }
+
+        .code-block {
+            background: #2d3436;
+            color: #fab1a0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            overflow-x: auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer {
+            padding: 2rem 2rem 1rem 2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0rem;
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" onclick="window.location.href='../index.html'">
+            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <a href="../index.html" class="back-link">← Voltar para o início</a>
+
+        <article>
+            <header class="article-header">
+                <span
+                    style="background: var(--accent-green); color: var(--dark-blue); padding: 4px 12px; font-weight: bold; border-radius: 4px;">MOTION</span>
+                <h1 style="font-size: 2.5rem; margin: 1rem 0;">Animações com CSS & GSAP</h1>
+            </header>
+
+            <p>
+                As animações não são apenas "enfeites" em uma interface. Elas servem como <strong>feedback
+                    visual</strong>, guiando o usuário e tornando a experiência mais orgânica. No meu workflow, utilizo
+                uma combinação de CSS puro para transições simples e GSAP para interações complexas.
+            </p>
+
+            <div class="demo-box">
+                <div class="animated-square"></div>
+            </div>
+
+            <h2 style="margin: 2rem 0 1rem;">O Poder dos Keyframes</h2>
+            <p>
+                O exemplo acima foi construído utilizando apenas CSS. O segredo está na propriedade
+                <code>@keyframes</code>, que permite definir estados específicos para um elemento ao longo do tempo.
+            </p>
+
+            <div class="code-block">
+                @keyframes pulse-rotate { <br>
+                &nbsp;&nbsp;0% { transform: scale(1) rotate(0deg); } <br>
+                &nbsp;&nbsp;50% { transform: scale(1.2) rotate(180deg); } <br>
+                &nbsp;&nbsp;100% { transform: scale(1) rotate(360deg); } <br>
+                }
+            </div>
+
+            <p>
+                Para animações que dependem do <em>scroll</em> do usuário ou sequências encadeadas, o <strong>GSAP
+                    (GreenSock Animation Platform)</strong> torna-se indispensável, permitindo um controle de linha do
+                tempo que o CSS padrão ainda não alcança com facilidade.
+            </p>
+        </article>
+
+        <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 4rem 0;">
+
+        <section class="more-projects">
+            <h3 style="margin-bottom: 2rem; color: var(--dark-blue); text-align: center;">Explore outros projetos no meu
+                GitHub</h3>
+
+            <div class="grid-container" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
+
+                <a href="https://jamisu337.github.io/wave-animation-css/" target="_blank"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="height: 100px; background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--accent-green);">
+                            <img src="../img/Captura de tela 2026-01-27 123839.png" alt="wave animation">
+                        </div>
+                        <div class="card-content" style="padding: 1rem;">
+                            <h4 style="margin-bottom: 5px;">Wave animation</h4>
+                            <p style="font-size: 0.8rem; color: #666;">Interface dinâmica onde o nome "Wave" reage
+                                visualmente a uma animação de ondas via CSS/JS..</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://jamisu337.github.io/rain/" target="_blank"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="height: 100px; background: var(--white); display: flex; align-items: center; justify-content: center; color: var(--accent-green);">
+                            <img src="../img/Captura de tela 2026-01-27 131424.png" alt="rain">
+                        </div>
+                        <div class="card-content" style="padding: 1rem;">
+                            <h4 style="margin-bottom: 5px;">Rain CSS</h4>
+                            <p style="font-size: 0.8rem; color: #666;">Ilustração de nuvem orgânica construída apenas
+                                com divs e estilização avançada de bordas.</p>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://github.com/jamisu337" target="_blank">
+                    <button class="btn primary" style="width: auto; padding: 0 40px;">Ver Perfil Completo</button>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-logo">&lt;Dev.Jamisu /&gt;</span>
+                <p style="color: #ccc; line-height: 1.6;">Unindo Design e Código.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Redes</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/jamisu337" class="footer-link">GitHub</a></li>
+                    <li><a href="mailto:jamersonlima337@gmail.com" class="footer-link">Email</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Jamisu Dev. Designer & Developer.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

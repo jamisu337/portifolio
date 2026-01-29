@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Design + Code</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+        </div>
+        <nav>
+            <ul>
+                <li class="nav-item"><a href="#home">Início</a></li>
+                <li class="nav-item"><a href="#projetos">Projetos</a></li>
+                <li class="nav-item"><a href="#sobre">Skills & Stack</a></li>
+                <li class="nav-item"><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <li class="nav-item" style="display: flex; align-items: center;">
+            <label class="switch">
+                <input type="checkbox" id="theme-toggle" />
+                <span class="slider"></span>
+            </label>
+        </li>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-lines">
+                    <h1 style="color: #2ecc71; font-family: monospace; font-size: 2.5rem; margin-bottom: 10px;">
+                        &lt;Dev.Jamisu /&gt;
+                    </h1>
+                    <p style="color: #fff; font-size: 1.2rem; margin-bottom: 20px;">
+                        Criando interfaces onde a <strong>estética do Design</strong> encontra a <strong>lógica da
+                            Programação</strong>.
+                    </p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="https://github.com/jamisu337" target="_blank">
+                        <button class="btn primary">GitHub</button>
+                    </a>
+                    <a href="mailto:jamersonlima337@gmail.com">
+                        <button class="btn secondary">Email</button>
+                    </a>
+                    <a href="https://wa.me/5584992105768" target="_blank">
+                        <button class="btn secondary">Telefone</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects-section" id="projetos">
+            <div class="section-title-bar"></div>
+            <h2 style="text-align: center; margin-bottom: 30px;">Projetos & Interfaces</h2>
+
+            <div class="grid-container">
+                <a href="https://jamisu337.github.io/Jogo-da-velha---dark-mode/"
+                    style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
+                            ❌
+                        </div>
+                        <div class="card-content">
+                            <h3 style="margin-bottom:10px;">Jogo da Velha</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+                                Aplicação interativa com lógica de verificação de vitória e empate, desenvolvida com
+                                manipulação do DOM.
+                            </p>
+                            <div class="card-footer">
+                                <div class="btn-small"
+                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                    Logic Game</div>
+                                <div class="dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://jamisu337.github.io/Campo-minado/" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="background: #2ecc71; display:flex; align-items:center; justify-content:center; color:#1a2530; font-size:3rem;">
+                            💣
+                        </div>
+                        <div class="card-content">
+                            <h3 style="margin-bottom:10px;">Campo Minado</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+                                Recriação do clássico usando algoritmos de recursividade para abrir espaços vazios e
+                                posicionamento aleatório.
+                            </p>
+                            <div class="card-footer">
+                                <div class="btn-small"
+                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                    Algorithm</div>
+                                <div class="dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://jamisu337.github.io/calculadora/" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
+                            🔢
+                        </div>
+                        <div class="card-content">
+                            <h3 style="margin-bottom:10px;">Calculadora</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+                                Interface funcional para operações matemáticas, focando em precisão de cálculos e design
+                                responsivo.
+                            </p>
+                            <div class="card-footer">
+                                <div class="btn-small"
+                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                    JS Puro</div>
+                                <div class="dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://jamisu337.github.io/lancador-dado/" style="text-decoration: none; color: inherit;">
+                    <div class="card">
+                        <div class="card-image"
+                            style="background: #2ecc71; display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
+                            🎲
+                        </div>
+                        <div class="card-content">
+                            <h3 style="margin-bottom:10px;">Lançador de Dados 3D</h3>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
+                                Simulador de dados de RPG (d6), construído inteiramente com
+                                transformações CSS 3D.
+                            </p>
+                            <div class="card-footer">
+                                <div class="btn-small"
+                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                    CSS 3D</div>
+                                <div class="dots">
+                                    <div class="dot"></div>
+                                    <div class="dot"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+        <section class="featured-news-section">
+            <h2 style="margin-bottom: 2rem;text-align: left;">Processo Criativo & Tech</h2>
+            <div class="featured-container">
+
+                <div class="slider-area">
+                    <div class="slider-main-box"
+                        style="position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: background 0.5s ease;">
+
+                        <div id="slider-bg"
+                            style="position: absolute; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 100%), url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover; transition: opacity 0.3s ease;">
+                        </div>
+
+                        <div style="position: relative; z-index: 2; padding: 3rem; color: white;">
+                            <span id="slider-tag"
+                                style="background: #2ecc71; color: #1a2530; padding: 4px 8px; font-weight: bold; font-size: 0.8rem; border-radius: 4px;">CSS
+                                TRICKS</span>
+
+                            <h3 id="slider-title" style="font-size: 1.8rem; margin: 10px 0;">Advanced CSS Loaders</h3>
+
+                            <p id="slider-desc" style="font-size: 0.9rem; opacity: 0.9;">Copie e cole loaders modernos
+                                de alta performance feitos com apenas uma div.</p>
+
+                            <button id="slider-btn" class="btn-small"
+                                onclick="window.location.href='blogs/blog-loader.html'"
+                                style="margin-top: 15px; width: auto; height: auto; padding: 10px 16px; cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">
+                                Ler Artigo
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls" style="margin-top: 10px;">
+                        <span id="prev-btn" class="arrow-control">◄</span>
+
+                        <div class="slider-dots">
+                            <span class="sq-dot dot-control active" data-index="0"></span>
+                            <span class="sq-dot dot-control" data-index="1"></span>
+                            <span class="sq-dot dot-control" data-index="2"></span>
+                        </div>
+
+                        <span id="next-btn" class="arrow-control">►</span>
+                    </div>
+                </div>
+
+                <div class="news-list">
+                    <a href="blogs/blog-animacoes.html" style="text-decoration: none; display: block;">
+                        <div class="news-item">
+                            <div class="news-thumb"
+                                style="display: flex; align-items: center; justify-content: center; color: #2ecc71; font-size: 1.5rem;">
+                                ✨</div>
+                            <div class="news-content">
+                                <h4 style="margin: 0;">Animações com CSS & GSAP</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Dando vida à interface
+                                    estática.</p>
+                                <div class="tags">
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Motion</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="blogs/blog-cores.html" style="text-decoration: none; display: block;">
+                        <div class="news-item">
+                            <div class="news-thumb"
+                                style="display: flex; align-items: center; justify-content: center; color: #61DAFB; font-size: 1.5rem;">
+                                🎨</div>
+                            <div class="news-content">
+                                <h4 style="margin: 0;">Teoria das Cores na Web</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Como escolher paletas
+                                    acessíveis.</p>
+                                <div class="tags">
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Design</span>
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">A11y</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="Em-breve.html" style="text-decoration: none; display: block;">
+                        <div class="news-item">
+                            <div class="news-thumb"
+                                style="display: flex; align-items: center; justify-content: center; color: #2ecc71; font-size: 1.5rem;">
+                                ...
+                            </div>
+                            <div class="news-content">
+                                <h4 style="margin: 0;">Em breve...</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">...</p>
+                                <div class="tags">
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-banner">
+            <div class="split-left" style="justify-content: center; align-items: flex-start;">
+                <span style="padding: 5px 10px; font-weight: bold; border-radius: 4px; margin-bottom: 15px;">DESIGN
+                    + CODE</span>
+                <h2 style="font-size: 2.2rem; margin-bottom: 15px;">A ponte entre o visual e o funcional
+                </h2>
+                <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px;">
+                    Como designer gráfico formado, não apenas escrevo linhas de código. Eu construo experiências.
+                    Trago o rigor estético do design para dentro da lógica da programação front-end.
+                </p>
+                <button class="btn primary" style="width: auto; padding: 0 30px;">Ver meu Portfólio Criativo</button>
+            </div>
+
+            <div class="split-right shapes-container" id="magnetic-container"
+                style="position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center;">
+
+                <div class="shape shape-square" data-speed="0.06"></div>
+                <div class="shape shape-circle" data-speed="-0.04"></div>
+                <div class="shape shape-triangle" data-speed="0.08"></div>
+                <div class="shape shape-dots" data-speed="0.02"></div>
+
+                <div class="center-anchor" data-speed="0.03">
+                    <span style="color: #2ecc71; font-size: 2rem; font-weight: bold;">&lt;/&gt;</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="pricing-section" id="contato">
+            <h2 style="text-align: center; width: 100%; margin-bottom: 30px; color: #fff;">Como posso ajudar?</h2>
+            <div class="pricing-container">
+
+                <div class="pricing-card dark">
+                    <div class="pricing-header">
+                        <h3 style="font-size: 1.5rem;">Web Design</h3>
+                        <p style="opacity: 0.7; font-size: 0.9rem;">Interfaces bonitas e modernas</p>
+                    </div>
+                    <div class="pricing-list" style="margin-top: 20px;">
+                        <div class="list-row"><span class="check">✔</span> Layouts Responsivos</div>
+                        <div class="list-row"><span class="check">✔</span> Identidade Visual</div>
+                        <div class="list-row"><span class="check">✔</span> Mobile First</div>
+                    </div>
+                </div>
+
+                <div class="pricing-card highlight">
+                    <div class="pricing-header">
+                        <h3 style="font-size: 1.8rem; font-weight: bold;">UI/UX & Frontend</h3>
+                        <p style="opacity: 0.8; font-size: 0.9rem;">Do protótipo ao código final</p>
+                    </div>
+                    <div class="pricing-list" style="margin-top: 20px;">
+                        <div class="list-row"><span class="check">✔</span> Prototipagem (Figma)</div>
+                        <div class="list-row"><span class="check">✔</span> Desenvolvimento React</div>
+                        <div class="list-row"><span class="check">✔</span> Animações & Interações</div>
+                        <div class="list-row"><span class="check">✔</span> Design Systems</div>
+                    </div>
+                </div>
+
+                <div class="pricing-card dark">
+                    <div class="pricing-header">
+                        <h3 style="font-size: 1.5rem;">Motion & Interação</h3>
+                        <p style="opacity: 0.7; font-size: 0.9rem;">Experiências imersivas</p>
+                    </div>
+                    <div class="pricing-list" style="margin-top: 20px;">
+                        <div class="list-row"><span class="check">✔</span> Micro-interações</div>
+                        <div class="list-row"><span class="check">✔</span> Landing Pages Animadas</div>
+                        <div class="list-row"><span class="check">✔</span> SVG Animation</div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="highlights" id="sobre">
+            <div class="highlight-box" style="padding: 20px; color: #1a2530;">
+                <h3 style="border-bottom: 2px solid #1a2530; padding-bottom: 10px; margin-bottom: 10px;">Tech Stack</h3>
+                <ul style="list-style: none; line-height: 1.6;">
+                    <li>• HTML5 Semântico</li>
+                    <li>• CSS3 / Sass / Tailwind</li>
+                    <li>• JavaScript (ES6+)</li>
+                    <li>• React.js / Vue</li>
+                </ul>
+            </div>
+
+            <!-- 
+            <div class="highlight-box highlight-striped">
+            </div> 
+            -->
+
+            <div class="highlight-box" style="padding: 20px; color: #1a2530;">
+                <h3 style="border-bottom: 2px solid #1a2530; padding-bottom: 10px; margin-bottom: 10px;">Design Tools
+                </h3>
+                <ul style="list-style: none; line-height: 1.6;">
+                    <li>• Adobe Photoshop</li>
+                    <li>• Adobe Illustrator</li>
+                    <li>• Prototipagem</li>
+                </ul>
+            </div>
+
+        </section>
+    </main>
+    <footer>
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <div class="dots mb-1">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <span class="footer-logo">&lt;Dev.Jamisu /&gt;</span>
+                <p style="color: #ccc; line-height: 1.6;">
+                    Unindo <strong>Design Gráfico</strong> e <strong>Código</strong> para criar interfaces digitais
+                    únicas, intuitivas e visualmente impactantes.
+                </p>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Menu</h4>
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">Início</a></li>
+                    <li><a href="#" class="footer-link">Portfólio Criativo</a></li>
+                    <li><a href="#" class="footer-link">Processo</a></li>
+                    <li><a href="#" class="footer-link">Contato</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Redes</h4>
+                <ul class="footer-links">
+                    <li>
+                        <a href="https://github.com/jamisu337" target="_blank" class="footer-link">
+                            <span>🐙</span> GitHub
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="footer-link"> <span>🎨</span> Behance/Dribbble
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:jamersonlima337@gmail.com" class="footer-link">
+                            <span>✉️</span> Email
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-title">Stack deste site</h4>
+                <ul class="footer-links">
+                    <li style="color: #777; font-size: 0.85rem;">Feito à mão com:</li>
+                    <li><span class="footer-link" style="cursor: default;">HTML5 Semântico</span></li>
+                    <li><span class="footer-link" style="cursor: default;">CSS Grid Layout</span></li>
+                    <li><span class="footer-link" style="cursor: default;">Conceitos de UI/UX</span></li>
+                </ul>
+            </div>
+
+            <div class="copyright">
+                &copy; 2026 Jamisu Dev. Designer & Developer. <br>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

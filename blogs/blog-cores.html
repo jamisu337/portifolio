@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teoria das Cores na Web | Dev.Jamisu</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+
+        /* Demonstração de Paleta */
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 15px;
+            margin: 2rem 0;
+        }
+
+        .color-swatch {
+            height: 120px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .swatch-1 {
+            background-color: #1a2530;
+            color: white;
+        }
+
+        /* Dark Blue */
+        .swatch-2 {
+            background-color: #2ecc71;
+            color: #1a2530;
+        }
+
+        /* Accent Green */
+        .swatch-3 {
+            background-color: #25a25a;
+            color: white;
+        }
+
+        /* Green A */
+        .swatch-4 {
+            background-color: #83f1b1;
+            color: #1a2530;
+        }
+
+        /* Green B */
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 5px solid var(--accent-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+        }
+
+        /* ... seus estilos anteriores ... */
+
+        /* Estilos para a seção de ferramentas */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            /* Responsivo automático */
+            gap: 20px;
+            margin-top: 2rem;
+        }
+
+        .tool-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            display: block;
+            /* Para o link ocupar o card todo */
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .tool-name {
+            color: var(--dark-blue);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .tool-desc {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        footer {
+            padding: 2rem 2rem 1rem 2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0rem;
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" onclick="window.location.href='../index.html'" style="cursor: pointer;">
+            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <a href="../index.html" class="back-link">← Voltar para o início</a>
+
+        <article>
+            <header class="article-header">
+                <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+                    <span
+                        style="background: #ddd; padding: 4px 12px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">DESIGN</span>
+                </div>
+                <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">Teoria das Cores na Web</h1>
+            </header>
+
+            <p>
+                Escolher uma paleta de cores vai muito além da estética. Na web, a cor é uma ferramenta de comunicação
+                que define a hierarquia visual e garante que o conteúdo seja legível para todos.
+            </p>
+
+            <div class="color-palette">
+                <div class="color-swatch swatch-1">#1A2530<br>Principal</div>
+                <div class="color-swatch swatch-2">#2ECC71<br>Destaque</div>
+                <div class="color-swatch swatch-3">#25A25A<br>Darken</div>
+                <div class="color-swatch swatch-4">#83F1B1<br>Lighten</div>
+            </div>
+
+            <h2 style="margin: 2rem 0 1rem;">O Contraste e a Acessibilidade (A11y)</h2>
+            <p>
+                Como desenvolvedores, temos a responsabilidade de criar interfaces inclusivas. O contraste entre o texto
+                e o fundo deve seguir as diretrizes da <strong>WCAG</strong>. No meu portfólio, utilizo o verde vibrante
+                sobre o azul escuro para garantir que os botões de ação sejam instantaneamente identificáveis.
+            </p>
+
+            <div class="info-box">
+                "Cores transmitem emoções. O verde evoca crescimento e tecnologia, enquanto o azul marinho traz
+                segurança e profissionalismo."
+            </div>
+
+            <p>
+                Ao codificar o CSS, o uso de <strong>Variáveis CSS (Custom Properties)</strong> facilita a manutenção
+                dessas escolhas, permitindo ajustes globais em segundos.
+            </p>
+
+            <h2 style="margin: 3rem 0 1rem;">Onde encontrar as melhores paletas?</h2>
+            <p>
+                Não precisamos confiar apenas na intuição. Existem ferramentas poderosas que utilizam a roda cromática
+                para gerar combinações perfeitas matematicamente. Aqui estão as minhas favoritas:
+            </p>
+
+            <div class="tools-grid">
+
+                <a href="https://color.adobe.com/pt/create/color-wheel" target="_blank" class="tool-card">
+                    <img src="https://cdn-1.webcatalog.io/catalog/adobe-color/adobe-color-icon-filled-256.png?v=1714773136013"
+                        alt="adobe color" style="width: 100px; height: 100px; border-radius: 10px;">
+                    <span class="tool-name">Adobe Color</span>
+                    <span class="tool-desc">
+                        A ferramenta padrão da indústria. Ótima para extrair cores de imagens e testar regras de
+                        harmonia (tríade, complementar, etc).
+                    </span>
+                </a>
+
+                <a href="https://coolors.co/" target="_blank" class="tool-card">
+                    <img src="https://cdn-1.webcatalog.io/catalog/coolors/coolors-icon-filled-256.png?v=1766968444251"
+                        alt="coolors" style="width: 100px; height: 100px; border-radius: 10px;">
+                    <span class="tool-name">Coolors.co</span>
+                    <span class="tool-desc">
+                        Perfeito para agilidade. Pressione a "Barra de Espaço" para gerar paletas aleatórias infinitas e
+                        exportar o código CSS direto.
+                    </span>
+                </a>
+
+            </div>
+
+            <p style="margin-top: 2rem; font-size: 0.9rem;">
+                <strong>Dica Pro:</strong> Ao usar o Coolors, você pode "trancar" (lock) uma cor que gostou e continuar
+                gerando as outras ao redor dela.
+            </p>
+        </article>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-logo">&lt;Dev.Jamisu /&gt;</span>
+                <p style="color: #ccc; line-height: 1.6;">Unindo Design e Código.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Redes</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/jamisu337" class="footer-link">GitHub</a></li>
+                    <li><a href="mailto:jamersonlima337@gmail.com" class="footer-link">Email</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Jamisu Dev. Designer & Developer.
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

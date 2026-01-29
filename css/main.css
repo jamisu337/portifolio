@@ -1,0 +1,22 @@
+/* main.css */
+
+/* Primeiro as Variáveis e Resets (se tiveres) */
+@import url('style.css'); 
+
+/* hero */
+@import url('hero.css');
+
+/* featured-news-section */
+@import url('featured-news-section.css');
+
+/* pricing-section */
+@import url('pricing-section.css');
+
+/* projects-section */
+@import url('projects-section.css');
+
+/* split-banner */
+@import url('split-banner.css');
+
+/* footer */
+@import url('footer.css');

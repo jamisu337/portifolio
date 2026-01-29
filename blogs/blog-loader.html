@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced CSS Loaders | Dev.Jamisu</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <style>
+        /* --- ESTILOS GERAIS --- */
+        .anim-section {
+            margin-bottom: 5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 3rem;
+        }
+
+        .anim-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-blue);
+            border-left: 5px solid var(--accent-green);
+            padding-left: 15px;
+        }
+
+        .showcase-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .showcase-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .demo-area {
+            height: 250px;
+            background-color: #f4f4f4;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- JANELA DE CÓDIGO & BOTÃO COPIAR --- */
+        .code-window {
+            background-color: var(--dark-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-family: 'Consolas', 'Courier New', monospace;
+            position: relative;
+        }
+
+        .window-header {
+            background-color: #111;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Espaço entre bolinhas e botão */
+        }
+
+        .dots-container {
+            display: flex;
+            gap: 8px;
+        }
+
+        .win-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        /* Botão de Copiar */
+        .copy-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ccc;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: sans-serif;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-green);
+            color: var(--dark-blue);
+            border-color: var(--accent-green);
+        }
+
+        .window-body {
+            padding: 20px;
+            color: #d4d4d4;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            max-height: 200px;
+            overflow-y: auto;/* Cria a barra de rolagem vertical se passar da altura */
+            overflow-x: auto;/* Mantém a rolagem lateral se a linha for longa */
+            white-space: pre;
+        }
+
+        /* Personalização da Scrollbar (Webkit: Chrome, Edge, Safari) */
+        .window-body::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        .window-body::-webkit-scrollbar-track {
+            background: #111;
+        }
+
+        .window-body::-webkit-scrollbar-thumb {
+            background-color: #444;
+            border-radius: 4px;
+            border: 2px solid #111;
+        }
+
+        .window-body::-webkit-scrollbar-thumb:hover {
+            background-color: var(--accent-green);
+        }
+
+        /* --- NOVOS LOADERS (Seu Código Adaptado) --- */
+
+        /* 1. Sequential Dots */
+        .loader-1 {
+            width: 60px;
+            aspect-ratio: 4;
+            background: radial-gradient(circle closest-side, var(--accent-green) 90%, #0000) 0/calc(100%/3) 100% space;
+            clip-path: inset(0 100% 0 0);
+            animation: l1 1s steps(4) infinite;
+        }
+
+        @keyframes l1 {
+            to {
+                clip-path: inset(0 -34% 0 0)
+            }
+        }
+
+        /* 2. Ring Mask */
+        .loader-2 {
+            width: 50px;
+            padding: 8px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            background: var(--accent-green);
+            --_m: conic-gradient(#0000 10%, #000), linear-gradient(#000 0 0) content-box;
+            -webkit-mask: var(--_m);
+            mask: var(--_m);
+            -webkit-mask-composite: source-out;
+            mask-composite: subtract;
+            animation: l3 1s infinite linear;
+        }
+
+        @keyframes l3 {
+            to {
+                transform: rotate(1turn)
+            }
+        }
+
+        /* 3. Text Fill */
+        .loader-3 {
+            width: fit-content;
+            font-size: 40px;
+            font-family: system-ui, sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #0000;
+            -webkit-text-stroke: 1px var(--dark-blue);
+            /* Ajustei para azul escuro */
+            background:
+                radial-gradient(1.13em at 50% 1.6em, var(--accent-green) 99%, #0000 101%) calc(50% - 1.6em) 0/3.2em 100% text,
+                radial-gradient(1.13em at 50% -0.8em, #0000 99%, var(--accent-green) 101%) 50% .8em/3.2em 100% repeat-x text;
+            animation: l9 2s linear infinite;
+        }
+
+        .loader-3:before {
+            content: "Loading";
+        }
+
+        @keyframes l9 {
+            to {
+                background-position: calc(50% + 1.6em) 0, calc(50% + 3.2em) .8em
+            }
+        }
+
+        /* 4. Folding Cube (3D) */
+        .loader-4 {
+            width: 60px;
+            aspect-ratio: 1;
+            display: grid;
+            grid: 50%/50%;
+            color: var(--accent-green);
+            --_g: no-repeat linear-gradient(currentColor 0 0);
+            background: var(--_g), var(--_g), var(--_g);
+            background-size: 50.1% 50.1%;
+            animation: l6-0 1.5s infinite steps(1) alternate, l6-0-0 3s infinite steps(1);
+        }
+
+        .loader-4::before {
+            content: "";
+            background: currentColor;
+            transform: perspective(150px) rotateY(0deg) rotateX(0deg);
+            transform-origin: bottom right;
+            animation: l6-1 1.5s infinite linear alternate;
+        }
+
+        @keyframes l6-0 {
+            0% {
+                background-position: 0 100%, 100% 100%, 100% 0
+            }
+
+            33% {
+                background-position: 100% 100%, 100% 100%, 100% 0
+            }
+
+            66% {
+                background-position: 100% 0, 100% 0, 100% 0
+            }
+        }
+
+        @keyframes l6-0-0 {
+            0% {
+                transform: scaleX(1) rotate(0deg)
+            }
+
+            50% {
+                transform: scaleX(-1) rotate(-90deg)
+            }
+        }
+
+        @keyframes l6-1 {
+            16.5% {
+                transform: perspective(150px) rotateX(-90deg) rotateY(0deg) rotateX(0deg);
+                filter: grayscale(0.8)
+            }
+
+            33% {
+                transform: perspective(150px) rotateX(-180deg) rotateY(0deg) rotateX(0deg)
+            }
+
+            66% {
+                transform: perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(0deg)
+            }
+
+            100% {
+                transform: perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);
+                filter: grayscale(0.8)
+            }
+        }
+
+        /* 5. Gooey Dots */
+        .loader-5 {
+            width: 80px;
+            aspect-ratio: 1;
+            border: 10px solid var(--dark-blue);
+            /* Container escuro para contraste */
+            box-sizing: border-box;
+            background:
+                radial-gradient(farthest-side, var(--accent-green) 98%, #0000) 50%/20px 20px,
+                radial-gradient(farthest-side, var(--accent-green) 98%, #0000) 50%/20px 20px,
+                radial-gradient(farthest-side, var(--accent-green) 98%, #0000) 50%/20px 20px,
+                radial-gradient(farthest-side, var(--accent-green) 98%, #0000) 50%/20px 20px,
+                radial-gradient(farthest-side, var(--accent-green) 98%, #0000) 50%/20px 20px,
+                linear-gradient(var(--accent-green) 0 0) 50%/100% 10px,
+                linear-gradient(var(--accent-green) 0 0) 50%/10px 100%,
+                var(--dark-blue);
+            background-repeat: no-repeat;
+            filter: blur(4px) contrast(10);
+            /* A mágica do Gooey */
+            animation: l13 0.8s infinite;
+        }
+
+        @keyframes l13 {
+            100% {
+                background-position: 50% -20px, -20px 50%, 60px 50%, 50% 60px, 50%, 50%, 50%
+            }
+        }
+
+        footer {
+            padding: 2rem 2rem 1rem 2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0rem;
+            padding-top: 0.5rem;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" onclick="window.location.href='../index.html'">
+            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <a href="../index.html"
+            style="text-decoration: none; color: var(--accent-green); font-weight: bold; margin-bottom: 2rem; display: inline-block;">←
+            Voltar ao Início</a>
+
+        <header style="text-align: center; margin-bottom: 4rem;">
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Advanced CSS Loaders</h1>
+            <p style="opacity: 0.7;">Animações de alto nível para interfaces modernas.</p>
+        </header>
+
+        <section class="anim-section">
+            <h2 class="anim-title">1. Sequential Dots</h2>
+            <div class="showcase-grid">
+                <div class="demo-area">
+                    <div class="loader-1"></div>
+                </div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dots-container">
+                            <div class="win-dot red"></div>
+                            <div class="win-dot yellow"></div>
+                            <div class="win-dot green"></div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <div class="window-body">/* HTML: &lt;div class="loader"&gt;&lt;/div&gt; */
+                        <span class="sel">.loader</span> {
+                        <span class="prop">width</span>: <span class="val">60px</span>;
+                        <span class="prop">aspect-ratio</span>: <span class="val">4</span>;
+                        <span class="prop">background</span>: <span class="val">radial-gradient(circle closest-side,
+                            #2ecc71 90%, #0000) 0/calc(100%/3) 100% space</span>;
+                        <span class="prop">clip-path</span>: <span class="val">inset(0 100% 0 0)</span>;
+                        <span class="prop">animation</span>: <span class="val">l1 1s steps(4) infinite</span>;
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l1</span> { <span class="prop">to</span> {
+                        <span class="prop">clip-path</span>: <span class="val">inset(0 -34% 0 0)</span> } }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="anim-section">
+            <h2 class="anim-title">2. Ring Mask Spinner</h2>
+            <div class="showcase-grid">
+                <div class="demo-area">
+                    <div class="loader-2"></div>
+                </div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dots-container">
+                            <div class="win-dot red"></div>
+                            <div class="win-dot yellow"></div>
+                            <div class="win-dot green"></div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <div class="window-body">/* HTML: &lt;div class="loader"&gt;&lt;/div&gt; */
+                        <span class="sel">.loader</span> {
+                        <span class="prop">width</span>: <span class="val">50px</span>;
+                        <span class="prop">padding</span>: <span class="val">8px</span>;
+                        <span class="prop">aspect-ratio</span>: <span class="val">1</span>;
+                        <span class="prop">border-radius</span>: <span class="val">50%</span>;
+                        <span class="prop">background</span>: <span class="val">#2ecc71</span>;
+                        <span class="prop">--_m</span>: <span class="val">conic-gradient(#0000 10%,#000),
+                            linear-gradient(#000 0 0) content-box</span>;
+                        <span class="prop">-webkit-mask</span>: <span class="val">var(--_m)</span>;
+                        <span class="prop">mask</span>: <span class="val">var(--_m)</span>;
+                        <span class="prop">-webkit-mask-composite</span>: <span class="val">source-out</span>;
+                        <span class="prop">mask-composite</span>: <span class="val">subtract</span>;
+                        <span class="prop">animation</span>: <span class="val">l3 1s infinite linear</span>;
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l3</span> { <span class="prop">to</span> {
+                        <span class="prop">transform</span>: <span class="val">rotate(1turn)</span> } }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="anim-section">
+            <h2 class="anim-title">3. Text Liquid Fill</h2>
+            <div class="showcase-grid">
+                <div class="demo-area">
+                    <div class="loader-3"></div>
+                </div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dots-container">
+                            <div class="win-dot red"></div>
+                            <div class="win-dot yellow"></div>
+                            <div class="win-dot green"></div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <div class="window-body">/* HTML: &lt;div class="loader"&gt;&lt;/div&gt; */
+                        <span class="sel">.loader</span> {
+                        <span class="prop">width</span>: <span class="val">fit-content</span>;
+                        <span class="prop">font-size</span>: <span class="val">40px</span>;
+                        <span class="prop">font-family</span>: <span class="val">system-ui,sans-serif</span>;
+                        <span class="prop">font-weight</span>: <span class="val">bold</span>;
+                        <span class="prop">text-transform</span>: <span class="val">uppercase</span>;
+                        <span class="prop">color</span>: <span class="val">#0000</span>;
+                        <span class="prop">-webkit-text-stroke</span>: <span class="val">1px #1a2530</span>;
+                        <span class="prop">background</span>:
+                        <span class="val">radial-gradient(1.13em at 50% 1.6em, #2ecc71 99%, #0000 101%) calc(50% -
+                            1.6em) 0/3.2em 100% text</span>,
+                        <span class="val">radial-gradient(1.13em at 50% -0.8em, #0000 99%, #2ecc71 101%) 50% .8em/3.2em
+                            100% repeat-x text</span>;
+                        <span class="prop">animation</span>: <span class="val">l9 2s linear infinite</span>;
+                        }
+                        <span class="sel">.loader:before</span> { <span class="prop">content</span>: <span
+                            class="val">"Loading"</span>; }
+                        <span class="kwd">@keyframes</span> <span class="sel">l9</span> { <span class="prop">to</span> {
+                        <span class="prop">background-position</span>: <span class="val">calc(50% + 1.6em) 0,calc(50% +
+                            3.2em) .8em</span> } }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="anim-section">
+            <h2 class="anim-title">4. 3D Folding Cube</h2>
+            <div class="showcase-grid">
+                <div class="demo-area">
+                    <div class="loader-4"></div>
+                </div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dots-container">
+                            <div class="win-dot red"></div>
+                            <div class="win-dot yellow"></div>
+                            <div class="win-dot green"></div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <div class="window-body">/* HTML: &lt;div class="loader"&gt;&lt;/div&gt; */
+                        <span class="sel">.loader</span> {
+                        <span class="prop">width</span>: <span class="val">60px</span>;
+                        <span class="prop">aspect-ratio</span>: <span class="val">1</span>;
+                        <span class="prop">display</span>: <span class="val">grid</span>;
+                        <span class="prop">grid</span>: <span class="val">50%/50%</span>;
+                        <span class="prop">color</span>: <span class="val">#2ecc71</span>;
+                        <span class="prop">--_g</span>: <span class="val">no-repeat linear-gradient(currentColor 0
+                            0)</span>;
+                        <span class="prop">background</span>: <span class="val">var(--_g),var(--_g),var(--_g)</span>;
+                        <span class="prop">background-size</span>: <span class="val">50.1% 50.1%</span>;
+                        <span class="prop">animation</span>: <span class="val">l6-0 1.5s infinite steps(1) alternate,
+                            l6-0-0 3s infinite steps(1)</span>;
+                        }
+                        <span class="sel">.loader::before</span> {
+                        <span class="prop">content</span>: <span class="val">""</span>;
+                        <span class="prop">background</span>: <span class="val">currentColor</span>;
+                        <span class="prop">transform</span>: <span class="val">perspective(150px) rotateY(0deg)
+                            rotateX(0deg)</span>;
+                        <span class="prop">transform-origin</span>: <span class="val">bottom right</span>;
+                        <span class="prop">animation</span>: <span class="val">l6-1 1.5s infinite linear
+                            alternate</span>;
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l6-0</span> {
+                        <span class="num">0%</span> { <span class="prop">background-position</span>: <span class="val">0
+                            100%,100% 100%,100% 0</span> }
+                        <span class="num">33%</span> { <span class="prop">background-position</span>: <span
+                            class="val">100% 100%,100% 100%,100% 0</span> }
+                        <span class="num">66%</span> { <span class="prop">background-position</span>: <span
+                            class="val">100% 0,100% 0,100% 0</span> }
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l6-0-0</span> {
+                        <span class="num">0%</span> { <span class="prop">transform</span>: <span class="val">scaleX(1)
+                            rotate(0deg)</span> }
+                        <span class="num">50%</span> { <span class="prop">transform</span>: <span class="val">scaleX(-1)
+                            rotate(-90deg)</span> }
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l6-1</span> {
+                        <span class="num">16.5%</span> { <span class="prop">transform</span>: <span
+                            class="val">perspective(150px) rotateX(-90deg) rotateY(0deg) rotateX(0deg);
+                            filter:grayscale(0.8)</span> }
+                        <span class="num">33%</span> { <span class="prop">transform</span>: <span
+                            class="val">perspective(150px) rotateX(-180deg) rotateY(0deg) rotateX(0deg)</span> }
+                        <span class="num">66%</span> { <span class="prop">transform</span>: <span
+                            class="val">perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(0deg)</span> }
+                        <span class="num">100%</span> { <span class="prop">transform</span>: <span
+                            class="val">perspective(150px) rotateX(-180deg) rotateY(-180deg) rotateX(-180deg);
+                            filter:grayscale(0.8)</span> }
+                        }
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="anim-section">
+            <h2 class="anim-title">5. Gooey Contrast Loader</h2>
+            <div class="showcase-grid">
+                <div class="demo-area">
+                    <div class="loader-5"></div>
+                </div>
+                <div class="code-window">
+                    <div class="window-header">
+                        <div class="dots-container">
+                            <div class="win-dot red"></div>
+                            <div class="win-dot yellow"></div>
+                            <div class="win-dot green"></div>
+                        </div>
+                        <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+                    </div>
+                    <div class="window-body">/* HTML: &lt;div class="loader"&gt;&lt;/div&gt; */
+                        <span class="sel">.loader</span> {
+                        <span class="prop">width</span>: <span class="val">80px</span>;
+                        <span class="prop">aspect-ratio</span>: <span class="val">1</span>;
+                        <span class="prop">border</span>: <span class="val">10px solid #1a2530</span>;
+                        <span class="prop">box-sizing</span>: <span class="val">border-box</span>;
+                        <span class="prop">background</span>:
+                        <span class="val">radial-gradient(farthest-side,#2ecc71 98%,#0000) 50%/20px 20px,
+                            radial-gradient(farthest-side,#2ecc71 98%,#0000) 50%/20px 20px,
+                            radial-gradient(farthest-side,#2ecc71 98%,#0000) 50%/20px 20px,
+                            radial-gradient(farthest-side,#2ecc71 98%,#0000) 50%/20px 20px,
+                            radial-gradient(farthest-side,#2ecc71 98%,#0000) 50%/20px 20px,
+                            linear-gradient(#2ecc71 0 0) 50%/100% 10px,
+                            linear-gradient(#2ecc71 0 0) 50%/10px 100%,
+                            #1a2530</span>;
+                        <span class="prop">background-repeat</span>: <span class="val">no-repeat</span>;
+                        <span class="prop">filter</span>: <span class="val">blur(4px) contrast(10)</span>;
+                        <span class="prop">animation</span>: <span class="val">l13 0.8s infinite</span>;
+                        }
+                        <span class="kwd">@keyframes</span> <span class="sel">l13</span> {
+                        <span class="num">100%</span> { <span class="prop">background-position</span>: <span
+                            class="val">50% -20px,-20px 50%,60px 50%,50% 60px,50%,50%,50%</span> }
+                        }
+                    </div>
+                </div>
+            </div>
+            <p>Nota: Este loader usa <code>filter: contrast()</code> e cores sólidas para criar o efeito líquido.
+                Funciona melhor com fundos escuros.</p>
+        </section>
+
+        <div style="text-align: center; margin-top: 5rem; background: #f0f2f5; padding: 2rem; border-radius: 12px;">
+            <h3>Gostou dos Loaders?</h3>
+            <p style="margin: 1rem 0;">Explore o código fonte no meu GitHub para mais exemplos.</p>
+            <a href="https://github.com/jamisu337" target="_blank">
+                <button class="btn primary" style="width: auto; padding: 0 30px;">GitHub</button>
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-logo">&lt;Dev.Jamisu /&gt;</span>
+                <p style="color: #ccc; line-height: 1.6;">Unindo Design e Código.</p>
+            </div>
+            <div class="footer-col">
+                <h4 class="footer-title">Redes</h4>
+                <ul class="footer-links">
+                    <li><a href="https://github.com/jamisu337" class="footer-link">GitHub</a></li>
+                    <li><a href="mailto:jamersonlima337@gmail.com" class="footer-link">Email</a></li>
+                </ul>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Jamisu Dev. Designer & Developer.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyCode(btn) {
+            // Acha o corpo da janela (o texto do código)
+            const windowBody = btn.closest('.code-window').querySelector('.window-body');
+            const codeText = windowBody.innerText;
+
+            // Copia para a área de transferência
+            navigator.clipboard.writeText(codeText).then(() => {
+                // Feedback visual
+                const originalText = btn.innerText;
+                btn.innerText = "Copiado!";
+                btn.style.backgroundColor = "#2ecc71"; // Verde
+                btn.style.color = "#1a2530"; // Azul escuro
+
+                // Volta ao normal depois de 2 segundos
+                setTimeout(() => {
+                    btn.innerText = originalText;
+                    btn.style.backgroundColor = ""; // Volta ao CSS original
+                    btn.style.color = "";
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+
+</html>

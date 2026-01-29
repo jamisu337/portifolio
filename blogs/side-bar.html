@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic Navigation Menu | Dev.Jamisu</title>
+    <link rel="stylesheet" href="../css/main.css">
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <style>
+        /* --- ESTILOS GERAIS DO ARTIGO --- */
+        .article-body {
+            max-width: 900px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+            color: var(--dark-blue);
+        }
+
+        .showcase-grid {
+            display: flex;
+            flex-direction: column;
+            /* Mudei para coluna para focar no download */
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 3rem;
+        }
+
+        /* --- ÁREA DE DEMONSTRAÇÃO (O MENU) --- */
+        .demo-area {
+            background-color: #f0f2f5;
+            padding: 2rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px;
+            width: 100%;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        /* O CONTAINER DO MENU (Magic Nav) */
+        .navigation {
+            position: relative;
+            width: 350px;
+            height: 70px;
+            background: var(--dark-blue);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+        }
+
+        .navigation ul {
+            display: flex;
+            width: 350px;
+        }
+
+        .navigation ul li {
+            position: relative;
+            list-style: none;
+            width: 70px;
+            height: 70px;
+            z-index: 1;
+        }
+
+        .navigation ul li a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .navigation ul li a .icon {
+            position: relative;
+            display: block;
+            line-height: 75px;
+            font-size: 1.5rem;
+            text-align: center;
+            transition: 0.5s;
+            color: white;
+        }
+
+        .navigation ul li.active a .icon {
+            transform: translateY(-32px);
+            color: var(--dark-blue);
+        }
+
+        .navigation ul li a .text {
+            position: absolute;
+            color: white;
+            font-weight: 400;
+            font-size: 0.75em;
+            letter-spacing: 0.05em;
+            transition: 0.5s;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .navigation ul li.active a .text {
+            opacity: 1;
+            transform: translateY(10px);
+        }
+
+        /* A BOLINHA MÁGICA */
+        .indicator {
+            position: absolute;
+            top: -50%;
+            width: 70px;
+            height: 70px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            border: 6px solid #f0f2f5;
+            transition: 0.5s;
+        }
+
+        .indicator::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-right-radius: 20px;
+            box-shadow: 1px -10px 0 0 #f0f2f5;
+        }
+
+        .indicator::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -22px;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border-top-left-radius: 20px;
+            box-shadow: -1px -10px 0 0 #f0f2f5;
+        }
+
+        /* Movimentação */
+        .navigation ul li:nth-child(1).active~.indicator {
+            transform: translateX(calc(70px * 0));
+        }
+
+        .navigation ul li:nth-child(2).active~.indicator {
+            transform: translateX(calc(70px * 1));
+        }
+
+        .navigation ul li:nth-child(3).active~.indicator {
+            transform: translateX(calc(70px * 2));
+        }
+
+        .navigation ul li:nth-child(4).active~.indicator {
+            transform: translateX(calc(70px * 3));
+        }
+
+        .navigation ul li:nth-child(5).active~.indicator {
+            transform: translateX(calc(70px * 4));
+        }
+
+        /* --- JANELA DE CÓDIGO & BOTÃO DOWNLOAD --- */
+        .code-window {
+            background-color: var(--dark-blue);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            font-family: 'Consolas', monospace;
+            width: 100%;
+        }
+
+        .window-header {
+            background-color: #111;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /* Separa as bolinhas do botão */
+        }
+
+        .dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .win-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        /* ESTILO DO BOTÃO DE DOWNLOAD */
+        .download-btn {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ccc;
+            padding: 6px 14px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .download-btn:hover {
+            background-color: var(--accent-green);
+            color: var(--dark-blue);
+            border-color: var(--accent-green);
+        }
+
+        .window-body {
+            padding: 20px;
+            color: #d4d4d4;
+            font-size: 0.85rem;
+            line-height: 1.5;
+            overflow-x: auto;
+        }
+
+        .tag {
+            color: #569cd6;
+        }
+
+        .attr {
+            color: #9cdcfe;
+        }
+
+        .str {
+            color: #ce9178;
+        }
+
+        .kwd {
+            color: #c586c0;
+        }
+
+        .cls {
+            color: #dcdcaa;
+        }
+
+        footer {
+            padding: 2rem 2rem 1rem 2rem;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 0rem;
+            padding-top: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo" onclick="window.location.href='../index.html'">
+            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+        </div>
+    </header>
+
+    <main class="article-body">
+        <a href="../index.html"
+            style="text-decoration: none; color: var(--accent-green); font-weight: bold; margin-bottom: 2rem; display: inline-block;">←
+            Voltar ao Início</a>
+
+        <header style="text-align: center; margin-bottom: 3rem;">
+            <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 15px;">
+                <span
+                    style="background: #ddd; padding: 4px 12px; font-weight: bold; border-radius: 4px; font-size: 0.8rem;">UI
+                    DESIGN</span>
+            </div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Magic Navigation Menu</h1>
+        </header>
+
+        <section class="showcase-grid">
+
+            <div class="demo-area">
+                <div class="navigation">
+                    <ul>
+                        <li class="list active"><a href="#"><span class="icon"><ion-icon
+                                        name="home-outline"></ion-icon></span><span class="text">Home</span></a></li>
+                        <li class="list"><a href="#"><span class="icon"><ion-icon
+                                        name="person-outline"></ion-icon></span><span class="text">Perfil</span></a>
+                        </li>
+                        <li class="list"><a href="#"><span class="icon"><ion-icon
+                                        name="chatbubble-outline"></ion-icon></span><span class="text">Chat</span></a>
+                        </li>
+                        <li class="list"><a href="#"><span class="icon"><ion-icon
+                                        name="camera-outline"></ion-icon></span><span class="text">Fotos</span></a></li>
+                        <li class="list"><a href="#"><span class="icon"><ion-icon
+                                        name="settings-outline"></ion-icon></span><span class="text">Ajustes</span></a>
+                        </li>
+                        <div class="indicator"></div>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="code-window">
+                <div class="window-header">
+                    <div class="dots">
+                        <div class="win-dot red"></div>
+                        <div class="win-dot yellow"></div>
+                        <div class="win-dot green"></div>
+                    </div>
+                    <button class="download-btn" onclick="downloadExample()">
+                        <span>📥</span> Baixar .html Completo
+                    </button>
+                </div>
+                <div class="window-body">
+                    <span class="kwd">const</span> list = document.<span class="cls">querySelectorAll</span>(<span
+                        class="str">'.list'</span>);<br><br>
+                    <span class="kwd">function</span> <span class="cls">activeLink</span>() {<br>
+                    &nbsp;&nbsp;list.<span class="cls">forEach</span>((item) =><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;item.classList.<span class="cls">remove</span>(<span
+                        class="str">'active'</span>));<br>
+                    &nbsp;&nbsp;<span class="kwd">this</span>.classList.<span class="cls">add</span>(<span
+                        class="str">'active'</span>);<br>
+                    }<br><br>
+                    list.<span class="cls">forEach</span>((item) =><br>
+                    &nbsp;&nbsp;item.<span class="cls">addEventListener</span>(<span class="str">'click'</span>,
+                    activeLink));
+                </div>
+                <div style="border-top: 1px solid #333; padding: 15px;">
+                    <p style="color: #666; margin-bottom: 5px;">💡 Dica:</p>
+                    <p style="font-size: 0.8rem; color: #999;">Clique no botão acima para baixar o arquivo
+                        <strong>exemplo.html</strong> pronto para usar no seu navegador.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+
+        <article>
+            <h3 style="margin-bottom: 1rem;">Como funciona?</h3>
+            <p style="margin-bottom: 1.5rem;">
+                Ao clicar em "Baixar .html Completo", você receberá um arquivo contendo todo o HTML, CSS e JavaScript
+                necessários para esta barra de navegação funcionar isoladamente.
+            </p>
+        </article>
+
+        <article>
+            <h3 style="margin-bottom: 1rem;">Entendendo a "Mágica"</h3>
+            <p style="margin-bottom: 1.5rem;">
+                O segredo deste menu não é um JavaScript complexo, mas sim o uso inteligente de <strong>CSS
+                    Positioning</strong> e <strong>Box Shadow</strong>.
+            </p>
+            <ul style="list-style-position: inside; line-height: 1.8;">
+                <li><strong>O Corte (Curve):</strong> Não é um SVG! É a borda da bola verde
+                    (<code>border: 6px solid #bg</code>) que tem a mesma cor do fundo da página.</li>
+                <li><strong>O Movimento:</strong> Usamos <code>transform: translateY</code> para fazer o ícone subir e o
+                    texto aparecer quando a classe <code>.active</code> está presente.</li>
+            </ul>
+        </article>
+
+        <script>
+            function downloadExample() {
+                const a = document.createElement('a');
+                // Aponta para o arquivo ZIPado
+                a.href = 'exemplo.zip';
+                a.download = 'Magic-Navigation.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        </script>
+
+        <script>
+            const list = document.querySelectorAll('.list');
+            function activeLink() {
+                list.forEach((item) =>
+                    item.classList.remove('active'));
+                this.classList.add('active');
+            }
+            list.forEach((item) =>
+                item.addEventListener('click', activeLink));
+        </script>
+
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <span class="footer-logo">&lt;Dev.Jamisu /&gt;</span>
+                <p style="color: #ccc; line-height: 1.6;">Unindo Design e Código.</p>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Jamisu Dev. Designer & Developer.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
