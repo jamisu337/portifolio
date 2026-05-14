@@ -36,7 +36,7 @@
 }
 
 .pricing-card.highlight {
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     color: var(--dark-blue-m);
     height: 420px;
     transform: scale(1.05);

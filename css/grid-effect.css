@@ -1,0 +1,107 @@
+/* grid-effect.css */
+
+.split-banner {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--dark-blue-m);
+    /* Fundo original do banner */
+}
+
+/* Remover fundos das colunas para que a grade fique visível por baixo */
+.split-left {
+    background-color: transparent !important;
+    pointer-events: none;
+    /* Deixa o mouse passar pelo painel para atingir o grid */
+}
+
+.split-right.grid-container-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent !important;
+    position: relative;
+    pointer-events: none;
+    /* Deixa o mouse passar pelo painel */
+}
+
+/* Reativar cliques apenas nos botões e links */
+.split-left button,
+.split-left a,
+.split-right button,
+.split-right a {
+    pointer-events: auto;
+}
+
+/* Ensure the central text stays above the grid */
+.card-grid__content {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-grid__content span {
+    color: var(--accent-purple);
+    font-size: 5rem;
+    font-weight: bold;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.card__grid-effect {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    display: grid;
+    /* Alinha perfeitamente as células a 3rem (48px) para casar com a sombra projetada */
+    grid-template-columns: repeat(auto-fill, 3rem);
+    grid-template-rows: repeat(auto-fill, 3rem);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.card__grid-effect-tile {
+    position: relative;
+    display: block;
+    width: 3rem;
+    height: 3rem;
+}
+
+.card__grid-effect-tile:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 0.3rem;
+    width: 0.3rem;
+    border-radius: 50%;
+
+    /* Tom de roxo mais sutil que se mistura ao fundo */
+    background: rgba(168, 85, 247, 0.15);
+    color: rgba(168, 85, 247, 0.15);
+
+    /* Transição mais suave e lenta para DESAPARECER (quando tira o mouse) */
+    transition: 1000ms ease-out all;
+
+    /* Box Shadow gigante gerado a partir do SCSS */
+    box-shadow: 0 0 0, 3rem 0 0 -0.3rem, -3rem 0 0 -0.3rem, 0 -3rem 0 -0.3rem, 0 3rem 0 -0.3rem, 3rem 3rem 0 -0.45rem, 3rem -3rem 0 -0.45rem, -3rem 3rem 0 -0.45rem, -3rem -3rem 0 -0.45rem, 3rem 6rem 0 -0.9rem, 3rem -6rem 0 -0.9rem, -3rem 6rem 0 -0.9rem, -3rem -6rem 0 -0.9rem, 3rem 9rem 0 -1.35rem, 3rem -9rem 0 -1.35rem, -3rem 9rem 0 -1.35rem, -3rem -9rem 0 -1.35rem, 3rem 12rem 0 -1.8rem, 3rem -12rem 0 -1.8rem, -3rem 12rem 0 -1.8rem, -3rem -12rem 0 -1.8rem, 6rem 0 0 -0.6rem, -6rem 0 0 -0.6rem, 0 -6rem 0 -0.6rem, 0 6rem 0 -0.6rem, 6rem 3rem 0 -0.9rem, 6rem -3rem 0 -0.9rem, -6rem 3rem 0 -0.9rem, -6rem -3rem 0 -0.9rem, 6rem 6rem 0 -1.8rem, 6rem -6rem 0 -1.8rem, -6rem 6rem 0 -1.8rem, -6rem -6rem 0 -1.8rem, 6rem 9rem 0 -2.7rem, 6rem -9rem 0 -2.7rem, -6rem 9rem 0 -2.7rem, -6rem -9rem 0 -2.7rem, 6rem 12rem 0 -3.6rem, 6rem -12rem 0 -3.6rem, -6rem 12rem 0 -3.6rem, -6rem -12rem 0 -3.6rem, 9rem 0 0 -0.9rem, -9rem 0 0 -0.9rem, 0 -9rem 0 -0.9rem, 0 9rem 0 -0.9rem, 9rem 3rem 0 -1.35rem, 9rem -3rem 0 -1.35rem, -9rem 3rem 0 -1.35rem, -9rem -3rem 0 -1.35rem, 9rem 6rem 0 -2.7rem, 9rem -6rem 0 -2.7rem, -9rem 6rem 0 -2.7rem, -9rem -6rem 0 -2.7rem, 9rem 9rem 0 -4.05rem, 9rem -9rem 0 -4.05rem, -9rem 9rem 0 -4.05rem, -9rem -9rem 0 -4.05rem, 9rem 12rem 0 -5.4rem, 9rem -12rem 0 -5.4rem, -9rem 12rem 0 -5.4rem, -9rem -12rem 0 -5.4rem, 12rem 0 0 -1.2rem, -12rem 0 0 -1.2rem, 0 -12rem 0 -1.2rem, 0 12rem 0 -1.2rem, 12rem 3rem 0 -1.8rem, 12rem -3rem 0 -1.8rem, -12rem 3rem 0 -1.8rem, -12rem -3rem 0 -1.8rem, 12rem 6rem 0 -3.6rem, 12rem -6rem 0 -3.6rem, -12rem 6rem 0 -3.6rem, -12rem -6rem 0 -3.6rem, 12rem 9rem 0 -5.4rem, 12rem -9rem 0 -5.4rem, -12rem 9rem 0 -5.4rem, -12rem -9rem 0 -5.4rem, 12rem 12rem 0 -7.2rem, 12rem -12rem 0 -7.2rem, -12rem 12rem 0 -7.2rem, -12rem -12rem 0 -7.2rem;
+}
+
+.card__grid-effect-tile:hover:before {
+    height: 3rem;
+    width: 3rem;
+    /* Adicionada a mesma cor na hora do hover para se destacar mais sutilmente */
+    background: rgba(168, 85, 247, 0.4);
+    color: rgba(168, 85, 247, 0.4);
+    transition: 300ms ease-out all;
+}
+
+@media (max-width: 768px) {
+    .card-grid__content span {
+        font-size: 3rem;
+    }
+}

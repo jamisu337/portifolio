@@ -13,15 +13,40 @@
 .section-title-bar {
     width: 100px;
     height: 8px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     margin: 0 auto 3rem auto;
     border-radius: 4px;
 }
 
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+.slider-wrapper {
+    overflow: hidden;
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    position: relative;
+    padding: 10px 0;
+}
+
+.slider-track {
+    display: flex;
     gap: 2rem;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.slider-track > a {
+    text-decoration: none;
+    color: inherit;
+    min-width: 320px;
+    max-width: 320px;
+}
+
+.slider-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 1rem)); } /* Half of the total width minus half gap */
 }
 
 .card {
@@ -72,7 +97,7 @@
 .btn-small {
     width: 40px;
     height: 15px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     border-radius: 4px;
 }
 
@@ -81,7 +106,7 @@
 .dot {
     width: 8px;
     height: 8px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     border-radius: 50%;
 }
 
@@ -97,17 +122,17 @@
 .highlight-box {
     width: 250px;
     height: 200px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     border-radius: 4px;
 }
 
 .highlight-striped {
     background: repeating-linear-gradient(
       45deg,
-      var(--accent-green),
-      var(--accent-green) 10px,
-      var(--accent-green-a) 10px,
-      var(--accent-green-a) 20px
+      var(--accent-purple),
+      var(--accent-purple) 10px,
+      var(--accent-purple-a) 10px,
+      var(--accent-purple-a) 20px
     );
 }
 
@@ -119,15 +144,7 @@
 }
 
 .featured-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr; 
-    gap: 3rem;
-}
-
-@media (max-width: 768px) {
-    .featured-container {
-        grid-template-columns: 1fr;
-    }
+    display: block;
 }
 
 .slider-main-box {
@@ -159,7 +176,7 @@
 .sq-dot {
     width: 20px;
     height: 20px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     border-radius: 4px;
     opacity: 0.5;
 }

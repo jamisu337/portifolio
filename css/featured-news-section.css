@@ -2,8 +2,15 @@
 
 .news-list {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 1.5rem;
+}
+
+.news-list > a {
+    flex: 1;
+    min-width: 280px;
+    text-decoration: none;
 }
 
 .news-item {
@@ -13,10 +20,11 @@
     padding: 10px; /* Adicionado para o hover não ficar colado ao conteúdo */
     border-radius: 12px; /* Bordas arredondadas no item inteiro */
     transition: background 0.3s ease, transform 0.2s ease;
+    height: 100%;
 }
 
 .news-item:hover {
-    background-color: var(--accent-green-b);
+    background-color: var(--accent-purple-b);
     cursor: pointer;
     transition: background 0.3s ease;
     transform: translateX(5px);
@@ -59,6 +67,6 @@
 .tag-sq {
     width: 15px;
     height: 15px;
-    background-color: var(--accent-green);
+    background-color: var(--accent-purple);
     border-radius: 3px;
 }

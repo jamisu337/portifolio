@@ -8,15 +8,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png">
     <link rel="stylesheet" href="css/main.css">
-    </head>
+</head>
 
 <body>
 
     <header>
         <div class="logo">
-            <span style="color: #2ecc71;">&lt;</span>Dev.Jamisu<span style="color: #2ecc71;">/&gt;</span>
+            <span style="color: #a855f7;">&lt;</span>Dev.Jamisu<span style="color: #a855f7;">/&gt;</span>
         </div>
-        <nav>
+        <nav class="nav-menu">
             <ul>
                 <li class="nav-item"><a href="#home">Início</a></li>
                 <li class="nav-item"><a href="#projetos">Projetos</a></li>
@@ -24,36 +24,32 @@
                 <li class="nav-item"><a href="#contato">Contato</a></li>
             </ul>
         </nav>
-        <li class="nav-item" style="display: flex; align-items: center;">
-            <label class="switch">
-                <input type="checkbox" id="theme-toggle" />
-                <span class="slider"></span>
-            </label>
-        </li>
+        <div class="header-actions" style="display: flex; align-items: center; gap: 1rem;">
+            <div class="theme-toggle-wrapper" style="display: flex; align-items: center;">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle" />
+                    <span class="slider"></span>
+                </label>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
     </header>
 
     <main>
         <section class="hero" id="home">
             <div class="hero-content">
                 <div class="hero-lines">
-                    <h1 style="color: #2ecc71; font-family: monospace; font-size: 2.5rem; margin-bottom: 10px;">
-                        &lt;Dev.Jamisu /&gt;
+                    <h1 style="color: #a855f7; font-family: monospace; font-size: 2.5rem; margin-bottom: 10px;">
+                        Meu Portfólio
                     </h1>
                     <p style="color: #fff; font-size: 1.2rem; margin-bottom: 20px;">
                         Criando interfaces onde a <strong>estética do Design</strong> encontra a <strong>lógica da
                             Programação</strong>.
                     </p>
-                </div>
-                <div class="cta-buttons">
-                    <a href="https://github.com/jamisu337" target="_blank">
-                        <button class="btn primary">GitHub</button>
-                    </a>
-                    <a href="mailto:jamersonlima337@gmail.com">
-                        <button class="btn secondary">Email</button>
-                    </a>
-                    <a href="https://wa.me/5584992105768" target="_blank">
-                        <button class="btn secondary">Telefone</button>
-                    </a>
                 </div>
             </div>
         </section>
@@ -62,108 +58,190 @@
             <div class="section-title-bar"></div>
             <h2 style="text-align: center; margin-bottom: 30px;">Projetos & Interfaces</h2>
 
-            <div class="grid-container">
-                <a href="https://jamisu337.github.io/Jogo-da-velha---dark-mode/"
-                    style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <div class="card-image"
-                            style="display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
-                            ❌
-                        </div>
-                        <div class="card-content">
-                            <h3 style="margin-bottom:10px;">Jogo da Velha</h3>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
-                                Aplicação interativa com lógica de verificação de vitória e empate, desenvolvida com
-                                manipulação do DOM.
-                            </p>
-                            <div class="card-footer">
-                                <div class="btn-small"
-                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
-                                    Logic Game</div>
-                                <div class="dots">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+            <div class="slider-wrapper">
+                <div class="slider-track">
+                    <!-- Item 1 -->
+                    <a href="https://jamisu337.github.io/Jogo-da-velha---dark-mode/"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                ❌</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Jogo da Velha</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Aplicação interativa com
+                                    lógica de verificação de vitória e empate, desenvolvida com manipulação do DOM.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        Logic Game</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a href="https://jamisu337.github.io/Campo-minado/" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <div class="card-image"
-                            style="background: #2ecc71; display:flex; align-items:center; justify-content:center; color:#1a2530; font-size:3rem;">
-                            💣
-                        </div>
-                        <div class="card-content">
-                            <h3 style="margin-bottom:10px;">Campo Minado</h3>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
-                                Recriação do clássico usando algoritmos de recursividade para abrir espaços vazios e
-                                posicionamento aleatório.
-                            </p>
-                            <div class="card-footer">
-                                <div class="btn-small"
-                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
-                                    Algorithm</div>
-                                <div class="dots">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                    </a>
+                    <!-- Item 2 -->
+                    <a href="https://jamisu337.github.io/Campo-minado/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="background: #a855f7; display:flex; align-items:center; justify-content:center; color:#1a2530; font-size:3rem;">
+                                💣</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Campo Minado</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Recriação do clássico
+                                    usando algoritmos de recursividade para abrir espaços vazios e posicionamento
+                                    aleatório.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        Algorithm</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a href="https://jamisu337.github.io/calculadora/" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <div class="card-image"
-                            style="display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
-                            🔢
-                        </div>
-                        <div class="card-content">
-                            <h3 style="margin-bottom:10px;">Calculadora</h3>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
-                                Interface funcional para operações matemáticas, focando em precisão de cálculos e design
-                                responsivo.
-                            </p>
-                            <div class="card-footer">
-                                <div class="btn-small"
-                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
-                                    JS Puro</div>
-                                <div class="dots">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                    </a>
+                    <!-- Item 3 -->
+                    <a href="https://jamisu337.github.io/calculadora/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                🔢</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Calculadora</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Interface funcional para
+                                    operações matemáticas, focando em precisão de cálculos e design responsivo.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        JS Puro</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <a href="https://jamisu337.github.io/lancador-dado/" style="text-decoration: none; color: inherit;">
-                    <div class="card">
-                        <div class="card-image"
-                            style="background: #2ecc71; display:flex; align-items:center; justify-content:center; color:#2ecc71; font-size:3rem;">
-                            🎲
-                        </div>
-                        <div class="card-content">
-                            <h3 style="margin-bottom:10px;">Lançador de Dados 3D</h3>
-                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">
-                                Simulador de dados de RPG (d6), construído inteiramente com
-                                transformações CSS 3D.
-                            </p>
-                            <div class="card-footer">
-                                <div class="btn-small"
-                                    style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
-                                    CSS 3D</div>
-                                <div class="dots">
-                                    <div class="dot"></div>
-                                    <div class="dot"></div>
+                    </a>
+                    <!-- Item 4 -->
+                    <a href="https://jamisu337.github.io/lancador-dado/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="background: #a855f7; display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                🎲</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Lançador de Dados 3D</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Simulador de dados de
+                                    RPG (d6), construído inteiramente com transformações CSS 3D.</p> <br>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        CSS 3D</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
+                    </a>
+                    <!-- DUP ITEMS -->
+                    <!-- Item 1 -->
+                    <a href="https://jamisu337.github.io/Jogo-da-velha---dark-mode/"
+                        style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                ❌</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Jogo da Velha</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Aplicação interativa com
+                                    lógica de verificação de vitória e empate, desenvolvida com manipulação do DOM.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        Logic Game</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Item 2 -->
+                    <a href="https://jamisu337.github.io/Campo-minado/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="background: #a855f7; display:flex; align-items:center; justify-content:center; color:#1a2530; font-size:3rem;">
+                                💣</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Campo Minado</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Recriação do clássico
+                                    usando algoritmos de recursividade para abrir espaços vazios e posicionamento
+                                    aleatório.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        Algorithm</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Item 3 -->
+                    <a href="https://jamisu337.github.io/calculadora/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                🔢</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Calculadora</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Interface funcional para
+                                    operações matemáticas, focando em precisão de cálculos e design responsivo.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        JS Puro</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- Item 4 -->
+                    <a href="https://jamisu337.github.io/lancador-dado/" style="text-decoration: none; color: inherit;">
+                        <div class="card">
+                            <div class="card-image"
+                                style="background: #a855f7; display:flex; align-items:center; justify-content:center; color:#a855f7; font-size:3rem;">
+                                🎲</div>
+                            <div class="card-content">
+                                <h3 style="margin-bottom:10px;">Lançador de Dados 3D</h3>
+                                <p style="font-size: 0.9rem; color: #666; margin-bottom: 15px;">Simulador de dados de
+                                    RPG (d6), construído inteiramente com transformações CSS 3D.</p>
+                                <div class="card-footer">
+                                    <div class="btn-small"
+                                        style="width: auto; padding: 0 10px; color: #1a2530; font-size: 0.7rem; display:flex; align-items:center; font-weight: bold;">
+                                        CSS 3D</div>
+                                    <div class="dots">
+                                        <div class="dot"></div>
+                                        <div class="dot"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
@@ -171,72 +249,37 @@
             <h2 style="margin-bottom: 2rem;text-align: left;">Processo Criativo & Tech</h2>
             <div class="featured-container">
 
-                <div class="slider-area">
-                    <div class="slider-main-box"
-                        style="position: relative; overflow: hidden; display: flex; align-items: flex-end; transition: background 0.5s ease;">
-
-                        <div id="slider-bg"
-                            style="position: absolute; width: 100%; height: 100%; background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.1) 100%), url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80') center/cover; transition: opacity 0.3s ease;">
-                        </div>
-
-                        <div style="position: relative; z-index: 2; padding: 3rem; color: white;">
-                            <span id="slider-tag"
-                                style="background: #2ecc71; color: #1a2530; padding: 4px 8px; font-weight: bold; font-size: 0.8rem; border-radius: 4px;">CSS
-                                TRICKS</span>
-
-                            <h3 id="slider-title" style="font-size: 1.8rem; margin: 10px 0;">Advanced CSS Loaders</h3>
-
-                            <p id="slider-desc" style="font-size: 0.9rem; opacity: 0.9;">Copie e cole loaders modernos
-                                de alta performance feitos com apenas uma div.</p>
-
-                            <button id="slider-btn" class="btn-small"
-                                onclick="window.location.href='blogs/blog-loader.html'"
-                                style="margin-top: 15px; width: auto; height: auto; padding: 10px 16px; cursor: pointer; border: none; display: inline-flex; align-items: center; justify-content: center; font-weight: bold;">
-                                Ler Artigo
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="slider-controls" style="margin-top: 10px;">
-                        <span id="prev-btn" class="arrow-control">◄</span>
-
-                        <div class="slider-dots">
-                            <span class="sq-dot dot-control active" data-index="0"></span>
-                            <span class="sq-dot dot-control" data-index="1"></span>
-                            <span class="sq-dot dot-control" data-index="2"></span>
-                        </div>
-
-                        <span id="next-btn" class="arrow-control">►</span>
-                    </div>
-                </div>
-
                 <div class="news-list">
-                    <a href="blogs/blog-animacoes.html" style="text-decoration: none; display: block;">
+                    <a href="blogs/blog-animacoes.html" class="reveal"
+                        style="text-decoration: none; display: block; transition-delay: 0.1s;">
                         <div class="news-item">
                             <div class="news-thumb"
-                                style="display: flex; align-items: center; justify-content: center; color: #2ecc71; font-size: 1.5rem;">
+                                style="display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 1.5rem;">
                                 ✨</div>
                             <div class="news-content">
                                 <h4 style="margin: 0;">Animações com CSS & GSAP</h4>
                                 <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Dando vida à interface
-                                    estática.</p>
+                                    estática de forma simples e fluída.</p>
                                 <div class="tags">
                                     <span
                                         style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Motion</span>
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">GSAP</span>
                                 </div>
                             </div>
                         </div>
                     </a>
 
-                    <a href="blogs/blog-cores.html" style="text-decoration: none; display: block;">
+                    <a href="blogs/blog-cores.html" class="reveal"
+                        style="text-decoration: none; display: block; transition-delay: 0.2s;">
                         <div class="news-item">
                             <div class="news-thumb"
-                                style="display: flex; align-items: center; justify-content: center; color: #61DAFB; font-size: 1.5rem;">
+                                style="display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 1.5rem;">
                                 🎨</div>
                             <div class="news-content">
                                 <h4 style="margin: 0;">Teoria das Cores na Web</h4>
                                 <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Como escolher paletas
-                                    acessíveis.</p>
+                                    acessíveis e bonitas.</p> <br>
                                 <div class="tags">
                                     <span
                                         style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Design</span>
@@ -247,18 +290,61 @@
                         </div>
                     </a>
 
-                    <a href="Em-breve.html" style="text-decoration: none; display: block;">
+                    <a href="blogs/animacoes-divs.html" class="reveal"
+                        style="text-decoration: none; display: block; transition-delay: 0.3s;">
                         <div class="news-item">
                             <div class="news-thumb"
-                                style="display: flex; align-items: center; justify-content: center; color: #2ecc71; font-size: 1.5rem;">
-                                ...
-                            </div>
+                                style="display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 1.5rem;">
+                                🎬</div>
                             <div class="news-content">
-                                <h4 style="margin: 0;">Em breve...</h4>
-                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">...</p>
+                                <h4 style="margin: 0;">Animações Fluídas com CSS</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Aprenda a criar
+                                    micro-interações que encantam o usuário sem pesar o site.</p>
                                 <div class="tags">
                                     <span
-                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">...</span>
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">CSS</span>
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">UX</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="blogs/blog-loader.html" class="reveal"
+                        style="text-decoration: none; display: block; transition-delay: 0.4s;">
+                        <div class="news-item">
+                            <div class="news-thumb"
+                                style="display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 1.5rem;">
+                                ⏳</div>
+                            <div class="news-content">
+                                <h4 style="margin: 0;">Advanced CSS Loaders</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Copie e cole loaders modernos
+                                    de alta performance feitos com apenas uma div.</p>
+                                <div class="tags">
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Tricks</span>
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Performance</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="blogs/side-bar.html" class="reveal"
+                        style="text-decoration: none; display: block; transition-delay: 0.5s;">
+                        <div class="news-item">
+                            <div class="news-thumb"
+                                style="display: flex; align-items: center; justify-content: center; color: #a855f7; font-size: 1.5rem;">
+                                🧭</div>
+                            <div class="news-content">
+                                <h4 style="margin: 0;">Magic Navigation Menu</h4>
+                                <p style="font-size: 0.8rem; color: #666; margin: 4px 0;">Recriando uma barra de
+                                    navegação com indicador flutuante e efeitos de luz.</p>
+                                <div class="tags">
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">UI</span>
+                                    <span
+                                        style="font-size: 0.7rem; background: #ddd; padding: 2px 6px; border-radius: 4px;">Nav</span>
                                 </div>
                             </div>
                         </div>
@@ -267,29 +353,30 @@
             </div>
         </section>
 
-        <section class="split-banner">
+        <section class="split-banner" style="position: relative;">
+            <div class="card__grid-effect" id="grid-effect-container">
+                <!-- Tiles are generated by JavaScript -->
+            </div>
+
             <div class="split-left" style="justify-content: center; align-items: flex-start;">
-                <span style="padding: 5px 10px; font-weight: bold; border-radius: 4px; margin-bottom: 15px;">DESIGN
+                <span
+                    style="padding: 5px 10px; font-weight: bold; border-radius: 4px; margin-bottom: 15px; position: relative; z-index: 2;">DESIGN
                     + CODE</span>
-                <h2 style="font-size: 2.2rem; margin-bottom: 15px;">A ponte entre o visual e o funcional
+                <h2 style="font-size: 2.2rem; margin-bottom: 15px; position: relative; z-index: 2;">A ponte entre o
+                    visual e o funcional
                 </h2>
-                <p style="color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px;">
+                <p
+                    style="color: #ccc; font-size: 1.1rem; line-height: 1.6; margin-bottom: 25px; position: relative; z-index: 2;">
                     Como designer gráfico formado, não apenas escrevo linhas de código. Eu construo experiências.
                     Trago o rigor estético do design para dentro da lógica da programação front-end.
                 </p>
-                <button class="btn primary" style="width: auto; padding: 0 30px;">Ver meu Portfólio Criativo</button>
+                <button class="btn primary" style="width: auto; padding: 0 30px; position: relative; z-index: 2;">Ver
+                    meu Portfólio Criativo</button>
             </div>
 
-            <div class="split-right shapes-container" id="magnetic-container"
-                style="position: relative; overflow: hidden; display: flex; justify-content: center; align-items: center;">
-
-                <div class="shape shape-square" data-speed="0.06"></div>
-                <div class="shape shape-circle" data-speed="-0.04"></div>
-                <div class="shape shape-triangle" data-speed="0.08"></div>
-                <div class="shape shape-dots" data-speed="0.02"></div>
-
-                <div class="center-anchor" data-speed="0.03">
-                    <span style="color: #2ecc71; font-size: 2rem; font-weight: bold;">&lt;/&gt;</span>
+            <div class="split-right grid-container-custom" id="magnetic-container">
+                <div class="card-grid__content">
+                    <span>&lt;/&gt;</span>
                 </div>
             </div>
         </section>
@@ -349,11 +436,6 @@
                 </ul>
             </div>
 
-            <!-- 
-            <div class="highlight-box highlight-striped">
-            </div> 
-            -->
-
             <div class="highlight-box" style="padding: 20px; color: #1a2530;">
                 <h3 style="border-bottom: 2px solid #1a2530; padding-bottom: 10px; margin-bottom: 10px;">Design Tools
                 </h3>
@@ -366,6 +448,7 @@
 
         </section>
     </main>
+
     <footer>
         <div class="footer-container">
 
@@ -393,21 +476,19 @@
             </div>
 
             <div class="footer-col">
-                <h4 class="footer-title">Redes</h4>
+                <h4 class="footer-title">Contato</h4>
                 <ul class="footer-links">
                     <li>
-                        <a href="https://github.com/jamisu337" target="_blank" class="footer-link">
-                            <span>🐙</span> GitHub
-                        </a>
+                        <a href="https://wa.me/5584992105768" target="_blank" class="footer-link"> Telefone </a>
                     </li>
                     <li>
-                        <a href="#" class="footer-link"> <span>🎨</span> Behance/Dribbble
-                        </a>
+                        <a href="https://github.com/jamisu337" target="_blank" class="footer-link"> Github </a>
                     </li>
                     <li>
-                        <a href="mailto:jamersonlima337@gmail.com" class="footer-link">
-                            <span>✉️</span> Email
-                        </a>
+                        <a href="#" class="footer-link"> Instagram </a>
+                    </li>
+                    <li>
+                        <a href="mailto:jamersonlima337@gmail.com" class="footer-link"> Email </a>
                     </li>
                 </ul>
             </div>
@@ -433,6 +514,3 @@
 
 
 </html>
-
-
-
